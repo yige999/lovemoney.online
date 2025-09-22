@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>LoveMoney - Play Online for Free</title>
+    <title>LoveMoney - Play Online for Free | H5 Game</title>
     <meta name="description" content="Play LoveMoney online for free! It's a clicker visual novel game where your moral choices determine the outcome. Raise $25,000 to save a life and explore multiple endings!">
     <meta name="keywords" content="LoveMoney, clicker game, visual novel, moral choices, multiple endings, H5 game, online game, free to play, no download, unlimited, Buwu">
     <link rel="canonical" href="https://yourdomain.com/en/games/lovemoney"> 
@@ -84,7 +84,7 @@
             .game-title-section h1 { font-size: 1.875rem; }
             .subtitle { font-size: 0.95rem; }
         }
-        #game-iframe-container { display: none; width: 100%; aspect-ratio: 16 / 9; }
+        #game-iframe-container { display: block; width: 100%; aspect-ratio: 16 / 9; }
         #game-iframe-container iframe { width: 100%; height: 100%; border: none; }
     </style>
 
@@ -205,19 +205,8 @@
                 </div>
 
                 <div class="game-embed-area">
-                    <div class="game-visual-and-overlay">
-                        <div class="game-launch-overlay">
-                            <img src="https://placehold.co/88x88/e74c3c/ffffff?text=LM" alt="LoveMoney Game Logo" class="game-logo-iframe" width="88" height="88">
-                            <h2 class="game-title-iframe">LoveMoney</h2>
-                            <button id="play-button" class="play-now-button-iframe">Play Now</button>
-                        </div>
-                    </div>
-                    <div id="game-iframe-container"></div>
-                    <div class="game-embed-controls">
-                        <div class="game-info-bar">
-                            <img src="https://placehold.co/32x32/e74c3c/ffffff?text=LM" alt="LoveMoney small icon" class="game-logo-bar" width="32" height="32">
-                            <span class="game-title-in-bar">LoveMoney</span>
-                        </div>
+                    <div id="game-iframe-container" style="display: block; width: 100%; aspect-ratio: 16 / 9;">
+                        <iframe src="https://lovemoneygame.io/lovemoney.embed" width="100%" height="100%" frameborder="0" allowfullscreen="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
                     </div>
                 </div>
                 
@@ -431,30 +420,6 @@
                 observer.observe(section);
             });
 
-            // Game launch logic
-            if (playButton) {
-                playButton.addEventListener('click', function() {
-                    const iframe = document.createElement('iframe');
-                    iframe.src = "https://lovemoneygame.io/lovemoney.embed";
-                    iframe.width = "100%";
-                    iframe.height = "100%";
-                    iframe.setAttribute("frameborder", "0");
-                    iframe.setAttribute("allowfullscreen", "");
-                    iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
-    
-                    if (gameLaunchOverlay) {
-                        gameLaunchOverlay.style.display = 'none';
-                    }
-                    if (gameIframeContainer) {
-                        gameIframeContainer.style.display = 'block';
-                        gameIframeContainer.appendChild(iframe);
-                    }
-                    if (gameEmbedControls) {
-                        gameEmbedControls.style.display = 'none';
-                    }
-                });
-            }
-            
             // Review function script
             const form = document.getElementById('add-review-form');
             const reviewsList = document.getElementById('reviews-list');
