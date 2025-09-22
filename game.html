@@ -88,9 +88,9 @@
         /* 优化后的 iFrame 样式，确保内容在容器内垂直居中 */
         #game-iframe-container {
             position: relative; 
-            display: block;
             width: 100%; 
             aspect-ratio: 16 / 9;
+            overflow: hidden; /* 防止iFrame内容溢出 */
         }
 
         #game-iframe-container iframe {
